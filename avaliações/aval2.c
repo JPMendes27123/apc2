@@ -2,7 +2,11 @@
 
 int main(void) {
     int numero;
-    // seu código continua aqui
+    
+    int *p = &numero;
+    *p = 5;
+
+    printf("%d\n", numero);
 
     return 0;
 }

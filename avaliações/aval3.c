@@ -2,7 +2,16 @@
 
 int main(void) {
     int n1 = 3, n2 = 5;
-    // seu código continua aqui
+    
+    int *p1 = &n1;
+    int *p2 = &n2;
+    int t;
 
-    printf("n1: %d, n2: %d\n", n1, n2); // espera-se exibir n1: 5, n2: 3
+    t = *p1;
+    *p1 = *p2;
+    *p2 = t;
+
+    printf("n1: %d, n2: %d\n", n1, n2);
+
+    return 0;
 }

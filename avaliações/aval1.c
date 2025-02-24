@@ -5,7 +5,15 @@ int main(void){
     int *p;
     p = &i;
     printf("&p: %p\n", &p);
-    printf("p  (&i - endereço de i): %p\n", p);
+    printf("p  (&i - endereco de i): %p\n", p);
     printf("*p ( i - valor de i): %d\n" , *p);
+
+    *p = 7;
+    printf("*p ( i - valor de i): %d\n" , *p);
+
+    printf("Escolha um novo valor para i:\n");
+    scanf("%d", p); // scanf("%d", &i)
+    printf("*p ( i - valor de i): %d\n" , *p);
+
     return 0;
 }
