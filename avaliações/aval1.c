@@ -12,7 +12,7 @@ int main(void){
     printf("*p ( i - valor de i): %d\n" , *p);
 
     printf("Escolha um novo valor para i:\n");
-    scanf("%d", p); // scanf("%d", &i)
+    scanf("%d", p);
     printf("*p ( i - valor de i): %d\n" , *p);
 
     return 0;
