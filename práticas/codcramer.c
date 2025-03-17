@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+//Declaracao das funcoes
+
 double calcDet2(double m[2][2]) {
     return (m[0][0] * m[1][1]) - (m[0][1] * m[1][0]);
 }
@@ -38,9 +40,7 @@ double calcDet4(double m[4][4]) {
     return det;
 }
 
-
-
-
+//Inicio codigo
 
 int main(void) {
 
@@ -49,13 +49,13 @@ int main(void) {
     int n = 0;
     scanf("%d", &n);
 
-
+    //MATRIZ 0X0
 
     if (n == 0) {
         printf("Essa matriz eh uma matriz nula e seu determinante eh igual 0.\n");
     } else 
 
-
+    //MATRIZ 1X1
 
     if (n == 1) { 
         printf("O determinante dessa matriz eh o proprio elemento.");
