@@ -52,17 +52,17 @@ int main(void) {
 
 
     if (n == 0) {
-        printf("Essa matriz eh uma matriz nula e seu determinante é igual 0.\n");
+        printf("Essa matriz eh uma matriz nula e seu determinante eh igual 0.\n");
     } else 
 
 
 
     if (n == 1) { 
-        printf("O determinante dessa matriz eh o próprio elemento.");
+        printf("O determinante dessa matriz eh o proprio elemento.");
 
     } else
 
-
+    //MATRIZ 2X2
 
     if (n == 2) { 
         printf("Digite os elementos da matriz 2x2 (elementos linha por linha):\n");
@@ -75,22 +75,50 @@ int main(void) {
             }
         }
 
+        printf("Digite os termos independentes do sistema linear:\n");
+
+        double mtermosidp[2];
+
+        for (int i = 0; i < 2; i++) {
+        scanf("%lf", &mtermosidp[i]);
+        }
+
         double det = calcDet2(m);
 
         if (det == 0) { 
-            printf("Nao eh possivel realizar a regra de cramer, pois o valor do determinante eh 0.\n");
-
+            printf("Nao eh possivel realizar a regra de cramer, pois o valor do determinante eh 0 e existem infinitas solucoes.\n");
+            return 0;
         } else printf("O determinante da matriz eh: %.2lf\n", det);
 
-        //fazer a regra de cramer
+        double mtemp1[2][2];
+        double mtemp2[2][2];
+    
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                mtemp1[i][j] = m[i][j];
+                mtemp2[i][j] = m[i][j];
+            }
+
+            mtemp1[i][0] = mtermosidp[i];
+            mtemp2[i][1] = mtermosidp[i];
+
+        }
+
+        double detx = calcDet2(mtemp1);
+        double dety = calcDet2(mtemp2);
+
+        double x = detx/det;
+        double y = dety/det;
+
+        printf("Os Valores de X e Y sao: %.2lf, %.2lf.\n", x, y);
 
     } 
 
-    
+    //MATRIZ 3X3
     
     
     else if (n == 3) {
-        printf("Digite os elementos da matriz 3x3 (linha por linha):\n");
+        printf("Digite os elementos da matriz 3x3 dos indices das variaveis (linha por linha):\n");
 
         double m[3][3];
         
@@ -99,20 +127,50 @@ int main(void) {
                 scanf("%lf", &m[i][j]);
             }
         }  
+
+        printf("Digite os termos independentes do sistema linear:\n");
+
+        double mtermosidp[3];
+
+        for (int i = 0; i < 3; i++) {
+        scanf("%lf", &mtermosidp[i]);
+        }
         
         double det = calcDet3(m);
 
         if (det == 0) {
             printf("Nao eh possivel realizar a regra de cramer, pois o valor do determinante eh 0.\n");
+            return 0;
         } else printf("O determinante da matriz eh: %.2lf\n", det);
 
-        //fazer a regra de cramer
+        double mtemp1[3][3];
+        double mtemp2[3][3];
+        double mtemp3[3][3];
     
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                mtemp1[i][j] = m[i][j];
+                mtemp2[i][j] = m[i][j];
+                mtemp3[i][j] = m[i][j];
+            }
+
+            mtemp1[i][0] = mtermosidp[i];
+            mtemp2[i][1] = mtermosidp[i];
+            mtemp3[i][2] = mtermosidp[i];
+        }
+
+        double detx = calcDet3(mtemp1);
+        double dety = calcDet3(mtemp2);
+        double detz = calcDet3(mtemp3);
+
+        double x = detx/det;
+        double y = dety/det;
+        double z = detz/det;
+
+        printf("Os Valores de X, Y e Z sao: %.2lf, %.2lf, %.2lf.\n", x, y, z);
     }
     
-
-
-
+    //MATRIZ 4X4
 
     else if (n == 4) {
         printf("Digite os elementos da matriz 4x4 (linha por linha):\n");
@@ -126,13 +184,51 @@ int main(void) {
 
         }
 
+        printf("Digite os termos independentes do sistema linear:\n");
+
+        double mtermosidp[4];
+
+        for (int i = 0; i < 4; i++) {
+        scanf("%lf", &mtermosidp[i]);
+        }
+
         double det = calcDet4(m);
 
         if (det == 0) {
             printf("Nao eh possivel realizar a regra de cramer, pois o valor do determinante eh 0.\n");
+            return 0;
         } else printf("O determinante da matriz eh: %.2lf\n", det);
 
-        // fazer a regra de cramer
+        double mtemp1[4][4];
+        double mtemp2[4][4];
+        double mtemp3[4][4];
+        double mtemp4[4][4];
+    
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                mtemp1[i][j] = m[i][j];
+                mtemp2[i][j] = m[i][j];
+                mtemp3[i][j] = m[i][j];
+                mtemp4[i][j] = m[i][j];
+            }
+
+            mtemp1[i][0] = mtermosidp[i];
+            mtemp2[i][1] = mtermosidp[i];
+            mtemp3[i][2] = mtermosidp[i];
+            mtemp4[i][3] = mtermosidp[i];
+        }
+        
+        double detx = calcDet4(mtemp1);
+        double dety = calcDet4(mtemp2);
+        double detz = calcDet4(mtemp3);
+        double deth = calcDet4(mtemp4);
+        
+        double x = detx/det;
+        double y = dety/det;
+        double z = detz/det;
+        double h = deth/det;
+
+        printf("Os Valores de X, Y, Z e H sao: %.2lf, %.2lf, %.2lf, %.2lf.\n", x, y, z, h);
 
     } else printf("A calculadora de Determinantes nao suporta esse tamanho de Matriz\n");
 
