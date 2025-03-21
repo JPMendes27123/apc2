@@ -204,8 +204,8 @@ int main(void) {
         double mtemp3[4][4];
         double mtemp4[4][4];
     
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 mtemp1[i][j] = m[i][j];
                 mtemp2[i][j] = m[i][j];
                 mtemp3[i][j] = m[i][j];
